@@ -449,7 +449,7 @@ def random_ye_generator():
         else:
             print("Invalid input. Please try again.")
 
-def introduction(total_ye_songs): 
+def introduction(count_total_ye_songs): 
     for x in range (3):
         print("Initializing Kanye West Song Database...")
         time.sleep(.5)
