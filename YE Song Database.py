@@ -1,6 +1,7 @@
 #Kanye West Discography Database
     ##By Sean James
 
+import time
 import random
 
 ye_discography = {
@@ -47,7 +48,7 @@ ye_discography = {
         "I'll Fly Away" : {
             "Duration": 69,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
+            "Writer(s)" : ["Albert E. Brumley"],
             "Producer(s)" : "Kanye West",
             "Sample" : [],
             "Track Description" : [],
@@ -143,7 +144,7 @@ ye_discography = {
             "Track Description" : [],
             "Track Number" : 15,
         },
-        "School Spirit  (Skit 2)" : {
+        "School Spirit (Skit 2)" : {
             "Duration": 43,
             "Feature(s)" : [],
             "Writer(s)" : "Kanye West",
@@ -219,7 +220,7 @@ ye_discography = {
         },
         "Heard 'Em Say" : {
             "Duration": 203,
-            "Feature(s)" : [],
+            "Feature(s)" : ["Adam Levine"],
             "Writer(s)" : [],
             "Producer(s)" : "Kanye West",
             "Sample" : [],
@@ -297,11 +298,108 @@ ye_discography = {
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 10,
-        }
-        }
-    
-    }
-
+        },
+        "Addiction" : { 
+            "Duration": 42,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 11,
+        },
+        "Skit No. 2" : {
+            "Duration": 33,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 12,
+        },
+        "Diamonds from Sierra Leone (Remix)" : {
+            "Duration": 42,
+            "Feature(s)" : ["J. Cole"],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 13,
+        },
+        "We Major" : {
+            "Duration": 42,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 14,
+        },
+        "Skit No. 3" : {
+            "Duration": 33,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 15,
+        },
+        "Hey Mama" : {
+            "Duration": 42,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 16,
+        },
+        "Celebration" : {
+            "Duration": 42,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 17,
+        },
+        "Skit No. 4" : {
+            "Duration": 33,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 18,
+        },
+        "Gone" : {
+            "Duration": 42,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 19,
+        },
+        "Diamonds from Sierra Leone (Bonus Track)" : {
+            "Duration": 33,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 20,
+        },
+        "Late (Hidden Track)" : {
+            "Duration": 33,
+            "Feature(s)" : [],
+            "Writer(s)" : [],
+            "Producer(s)" : "Kanye West",
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 21,
+        },
+    },
+}
 
 def feature_artist_search(album_filter= None):
     searched_artist = input("Enter any artist to see if they've been featured on a Kanye West song: ")
@@ -317,118 +415,157 @@ def feature_artist_search(album_filter= None):
 def random_ye_generator():
     random_album = random.choice(list(ye_discography.keys()))
     random_track = random.choice(list(ye_discography[random_album].keys()))
-    print(f"Your random Kanye West song is {random_track} from the album {random_album}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def main_Menu():
-    print("Welcome to Kanye West Song Length Finder!")
-
+    try:
+        while "skit" in random_track.lower():
+            random_track = random.choice(list(ye_discography[random_album].keys()))
+        print(f"Your random Kanye West song is {random_track} from the album {random_album}")
+    except IndexError:
+        print("Search Error. Please try again.")
+
+def introduction(): 
+    for x in range (3):
+        print("Initializing Kanye West Song Database...")
+        time.sleep(1.5)
+    print("Welcome to the largest Kanye West database on the internet!")
+    input("Press Enter to continue...")
+    
+
+def track_finder():
+    print("Input a track number and album number to find the track.")
+    album_number = int(input("Album Number: "))
+    if album_number == 1:
+        print("Album: The College Dropout")
+    elif album_number == 2:
+        print("Album: Late Registration")
+    elif album_number == 3:
+        print("Album: Graduation")    
+    track_number = int(input("Track Number: "))
+    album = list(ye_discography.keys())[album_number - 1]
+    track = list(ye_discography[album].keys())[track_number - 1]
+    print(f"The track you are looking for is {track} from the album {album}")
+
+def main_menu():
     while True:
-        user_input = input("Enter a Kanye West song name: ")
-        if user_input.lower() == "exit":
+        user_choice = input("What is your selection? ")
+        if user_choice == "Random Generator".strip().lower():
+            random_ye_generator()
+        elif user_choice == "Exit".lower().strip():
+            for x in range (3):
+                print("Exiting Kanye West Song Database..")
+                time.sleep(0.7)
+            print("Program Closed...")
             break
+        elif user_choice == "Track Finder".lower().strip():
+            track_finder()
         else:
-            print("Song notwww found in database. Please try again.")
-            continue
+            print("Invalid selection. Please select again.")
+            
 
-#main_Menu()
+track_finder()
+
+
+
+#introduction()
+#main_menu()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
