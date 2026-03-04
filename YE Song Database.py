@@ -1,16 +1,23 @@
 #Kanye West Discography Database
     ##By Sean James
+#“CLI tool that models a large nested data set, 
+# implements search and random sampling, 
+# and supports user interaction. 
+# Skills demonstrated: Python dictionaries, loops, 
+# functions, data validation, filtering, and JSON handling.”
+
 
 import time
 import random
+import json
 
 ye_discography = {
     "The College Dropout, 2004": {
         "Intro (Skit)" : {
             "Duration": 19,
             "Feature(s)" : [],
-            "Writer" : "Kanye West",
-            "Producer" : "Kanye West",    #22 Song album
+            "Writer(s)" : ["Kanye West"],
+            "Producer(s)" : "Kanye West",    #22 Song album
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 1,
@@ -19,9 +26,8 @@ ye_discography = {
             "Duration": 239,
             "Feature(s)" : [],
             "Writer(s)" : ["Kanye West, Miri Ben-Ari, Ross Vannelli"],
-            "Producer(s)" : "Kanye West",
-            "Sample" : ["""We Don't Care contains samples of 'I Just Wanna Stop', 
-            written by Ross Vannelli and performed by the Jimmy Castor Bunch"""],
+            "Producer(s)" : ["Kanye West"],
+            "Sample" : ["We Don't Care contains samples of 'I Just Wanna Stop' written by Ross Vannelli and performed by the Jimmy Castor Bunch"],
             "Track Description" : [],
             "Track Number" : 2,
         },
@@ -37,10 +43,9 @@ ye_discography = {
         "All Falls Down" : {
             "Duration": 223,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West", "Lauryn Hill"],
             "Producer(s)" : "Kanye West",
-            "Sample" : ["""contains interpolations of 
-            Lauryn Hill's 'Mystery of Iniquity', 
+            "Sample" : ["""contains interpolations of Lauryn Hill's 'Mystery of Iniquity', 
             performed here by Syleena Johnson."""],
             "Track Description" : [],
             "Track Number" : 4,
@@ -57,7 +62,8 @@ ye_discography = {
         "Spaceship" : {
             "Duration": 324,
             "Feature(s)" : ["Consequence", "GLC"],
-            "Writer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West", "Leonard Harris", "Dexter Mills", 
+                "Marvin Gaye", "Gwen Gordy Fuqua", "Sandra Greene"],
             "Producer(s)" : "Kanye West",
             "Sample" : [],
             "Track Description" : [],
@@ -66,8 +72,9 @@ ye_discography = {
         "Jesus Walks" : {
             "Duration": 193,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West", "Che Smith", "Miri Ben-Ari"
+                        "Curtis Lundy"],
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 7,
@@ -75,8 +82,9 @@ ye_discography = {
         "Never Let Me Down" : {
             "Duration": 324,
             "Feature(s)" : ["Jay-Z", "J. Ivy"],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West", "Shawn Carter", "James Richardson",
+                        "Michael Bolton", "Bruce Kulick"],
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 8,
@@ -120,7 +128,7 @@ ye_discography = {
         "Breathe In Breath Out" : {
             "Duration": 246,
             "Feature(s)" : ["Ludacris"],
-            "Writer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West"],
             "Producer(s)" : ["Kanye West", "Brian Miller"],
             "Sample" : [],
             "Track Description" : [],
@@ -129,8 +137,8 @@ ye_discography = {
         "School Spirit (Skit)" : {
             "Duration": 78,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West"],
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 14,
@@ -138,8 +146,8 @@ ye_discography = {
         "School Spirit" : {
             "Duration": 182,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West"],
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 15,
@@ -147,8 +155,8 @@ ye_discography = {
         "School Spirit (Skit 2)" : {
             "Duration": 43,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West"],
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 16,
@@ -156,8 +164,8 @@ ye_discography = {
         "Lil Jimmy (Skit)" : {
             "Duration": 53,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West"],
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 17,
@@ -165,8 +173,8 @@ ye_discography = {
         "Two Words" : {
             "Duration": 266,
             "Feature(s)" : ["Mos Def", "Freeway", "The Boys Choir of Harlem"],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West"],
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 18,
@@ -174,8 +182,8 @@ ye_discography = {
         "Through the Wire" : {
             "Duration": 221,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",
+            "Writer(s)" : ["Kanye West"],
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 19,
@@ -183,8 +191,8 @@ ye_discography = {
         "Family Business" : {
             "Duration": 278,
             "Feature(s)" : [],
-            "Writer(s)" : "Kanye West",
-            "Producer(s)" : "Kanye West",      
+            "Writer(s)" : ["Kanye West"],
+            "Producer(s)" : ["Kanye West"],      
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 20,
@@ -193,7 +201,7 @@ ye_discography = {
             "Duration": 760,
             "Feature(s)" : [],
             "Writer(s)" : ["Kanye West", "Michael Perretta", "Tony Williams", "Ken Lewis"],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West", "Evidence"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 21,
@@ -202,7 +210,7 @@ ye_discography = {
             "Duration": 235,
             "Feature(s)" : ["GLC"],
             "Writer(s)" : ["Kanye West", "Leonard Harris"],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 22,
@@ -213,7 +221,7 @@ ye_discography = {
             "Duration": 41,
             "Feature(s)" : [],
             "Writer(s)" : ["Michael Masser", "Gerry Goffin"],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 1,
@@ -222,7 +230,7 @@ ye_discography = {
             "Duration": 203,
             "Feature(s)" : ["Adam Levine"],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 2,
@@ -231,7 +239,7 @@ ye_discography = {
             "Duration": 43,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",     #21 Song album.
+            "Producer(s)" : ["Kanye West"],     #21 Song album.
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 3,
@@ -240,7 +248,7 @@ ye_discography = {
             "Duration": 207,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 4,
@@ -249,7 +257,7 @@ ye_discography = {
             "Duration": 33,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 5,
@@ -258,7 +266,7 @@ ye_discography = {
             "Duration": 272,
             "Feature(s)" : ["GLC", "Paul Wall"],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 6,
@@ -267,7 +275,7 @@ ye_discography = {
             "Duration": 42,
             "Feature(s)" : [],
             "Writer(s)" : ["Kanye West", "Lonnie Lynn", "Gil-Scott Heron"],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : ["Perfmored in it's entirety by Common"],
             "Track Number" : 7,
@@ -276,7 +284,7 @@ ye_discography = {
             "Duration": 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 8,
@@ -285,7 +293,7 @@ ye_discography = {
             "Duration": 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 9,
@@ -303,7 +311,7 @@ ye_discography = {
             "Duration": 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 11,
@@ -312,16 +320,16 @@ ye_discography = {
             "Duration": 33,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 12,
         },
         "Diamonds from Sierra Leone (Remix)" : {
             "Duration": 42,
-            "Feature(s)" : ["J. Cole"],
+            "Feature(s)" : ["Jay-Z"],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 13,
@@ -330,7 +338,7 @@ ye_discography = {
             "Duration": 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 14,
@@ -339,7 +347,7 @@ ye_discography = {
             "Duration": 33,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 15,
@@ -348,7 +356,7 @@ ye_discography = {
             "Duration": 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 16,
@@ -357,7 +365,7 @@ ye_discography = {
             "Duration": 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 17,
@@ -366,7 +374,7 @@ ye_discography = {
             "Duration": 33,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 18,
@@ -375,7 +383,7 @@ ye_discography = {
             "Duration": 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 19,
@@ -384,7 +392,7 @@ ye_discography = {
             "Duration": 33,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 20,
@@ -393,7 +401,7 @@ ye_discography = {
             "Duration": 33,
             "Feature(s)" : [],
             "Writer(s)" : [],
-            "Producer(s)" : "Kanye West",
+            "Producer(s)" : ["Kanye West"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 21,
@@ -412,6 +420,16 @@ def feature_artist_search(album_filter= None):
     if artist_found == False:
         print(f"Kanye West has not featured with {searched_artist} on any songs.")
 
+
+def total_ye_songs():
+    total_songs = 0
+    for album_name, album_tracks in ye_discography.items():
+        for song, details in album_tracks.items():
+            total_songs += 1
+    return total_songs
+
+
+
 def random_ye_generator():
     random_album = random.choice(list(ye_discography.keys()))
     random_track = random.choice(list(ye_discography[random_album].keys()))
@@ -422,13 +440,14 @@ def random_ye_generator():
     except IndexError:
         print("Search Error. Please try again.")
 
-def introduction(): 
+def introduction(total_ye_songs): 
     for x in range (3):
         print("Initializing Kanye West Song Database...")
         time.sleep(1.5)
-    print("Welcome to the largest Kanye West database on the internet!")
+    print(f"Welcome to the largest Kanye West database on the internet! Host of a whopping {total_ye_songs} songs!")
     input("Press Enter to continue...")
     
+
 
 def track_finder():
     print("Input a track number and album number to find the track.")
@@ -461,12 +480,10 @@ def main_menu():
             print("Invalid selection. Please select again.")
             
 
-track_finder()
 
 
-
-#introduction()
-#main_menu()
+introduction(total_ye_songs())
+main_menu()
 
 
 
