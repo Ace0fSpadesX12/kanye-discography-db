@@ -12,7 +12,7 @@ import random
 import json
 
 ye_discography = {
-    "The College Dropout, 2004": {
+    "The College Dropout": {
         "Intro (Skit)" : {
             "Duration": 19,
             "Feature(s)" : [],
@@ -216,7 +216,7 @@ ye_discography = {
             "Track Number" : 22,
         },
     },
-    "Late Registration, 2005" : {
+    "Late Registration" : {
         "Wake Up Mr. West" : {
             "Duration": 41,
             "Feature(s)" : [],
@@ -430,48 +430,70 @@ def total_ye_songs():
 
 
 
-def random_ye_generator():
-    random_album = random.choice(list(ye_discography.keys()))
-    random_track = random.choice(list(ye_discography[random_album].keys()))
-    try:
-        while "skit" in random_track.lower():
-            random_track = random.choice(list(ye_discography[random_album].keys()))
-        print(f"Your random Kanye West song is {random_track} from the album {random_album}")
-    except IndexError:
-        print("Search Error. Please try again.")
+def random_ye_generator(): 
+    while True:
+        random_album = random.choice(list(ye_discography.keys()))
+        random_track = random.choice(list(ye_discography[random_album].keys()))
+        try:
+            while "skit" in random_track.lower():
+                random_track = random.choice(list(ye_discography[random_album].keys()))
+            print(f"Your random Kanye West song is {random_track} from the album {random_album}")
+        except IndexError:
+            print("Search Error. Please try again.")      
+        loop_again = input("Do you want to search again? (y/n): ")
+        if loop_again.lower() == "y":
+            continue
+        elif loop_again.lower() == "n":
+            print("(back to Main Menu...)")
+            break
+        else:
+            print("Invalid input. Please try again.")
 
 def introduction(total_ye_songs): 
     for x in range (3):
         print("Initializing Kanye West Song Database...")
-        time.sleep(1.5)
-    print(f"Welcome to the largest Kanye West database on the internet! Host of a whopping {total_ye_songs} songs!")
+        time.sleep(.5)
+    print(f"Welcome to the most extensive Kanye West database on the internet! Host of a whopping {total_ye_songs} songs across his discography!")
     input("Press Enter to continue...")
-    
+
+
+album_names = {"The College Dropout" : ["TCD", "Dropout"],
+            "Late Registration" : [] }
+
+
 
 
 def track_finder():
-    print("Input a track number and album number to find the track.")
-    album_number = int(input("Album Number: "))
-    if album_number == 1:
-        print("Album: The College Dropout")
-    elif album_number == 2:
-        print("Album: Late Registration")
-    elif album_number == 3:
-        print("Album: Graduation")    
-    track_number = int(input("Track Number: "))
-    album = list(ye_discography.keys())[album_number - 1]
-    track = list(ye_discography[album].keys())[track_number - 1]
-    print(f"The track you are looking for is {track} from the album {album}")
+    print("Please input an album title and track number to find a track.")
+    while True:
+        album_choice = input("Please enter a Kanye West album: ")
+        if album_choice in album_names.values():
+                    print({album_choice})
+                    break
+        else:
+            print("Not a valid Kanye West album. Please try again.")
+
+    while True:
+        track_number = input("Track Number: ")
+        try:
+            track_number = int(track_number)
+            break
+        except ValueError:
+            print("Not a valid number. Please try again.")
+
+
+
 
 def main_menu():
     while True:
+        print("Your options in program are: \nRandom Generator \nTrack Finder \nExit")
         user_choice = input("What is your selection? ")
-        if user_choice == "Random Generator".strip().lower():
+        if user_choice == "random generator".strip().lower():
             random_ye_generator()
         elif user_choice == "Exit".lower().strip():
             for x in range (3):
                 print("Exiting Kanye West Song Database..")
-                time.sleep(0.7)
+                time.sleep(0.9)
             print("Program Closed...")
             break
         elif user_choice == "Track Finder".lower().strip():
@@ -481,11 +503,10 @@ def main_menu():
             
 
 
-
 introduction(total_ye_songs())
 main_menu()
 
-
+#print(ye_discography.keys())
 
 
 
