@@ -1,10 +1,10 @@
 #Kanye West Discography Database
     ##By Sean James
-#“CLI tool that models a large nested data set, 
-# implements search and random sampling, 
-# and supports user interaction. 
-# Skills demonstrated: Python dictionaries, loops, 
-# functions, data validation, filtering, and JSON handling.”
+"""CLI tool that models a large nested data set, 
+implements search and random sampling, 
+and supports user interaction. 
+Skills demonstrated: Python dictionaries, loops, 
+functions, data validation, filtering, and JSON handling."""
 
 
 import time
@@ -230,14 +230,14 @@ ye_discography = {
             "Duration": 203,
             "Feature(s)" : ["Adam Levine"],
             "Writer(s)" : [],
-            "Producer(s)" : ["Kanye West"],
+            "Producer(s)" : ["Kanye West", "Jon Brion"],
             "Sample" : [],
             "Track Description" : [],
             "Track Number" : 2,
         },
         "Touch the Sky" : {
             "Duration": 43,
-            "Feature(s)" : [],
+            "Feature(s)" : ["Lupe Fiasco"],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],     #21 Song album.
             "Sample" : [],
@@ -246,7 +246,7 @@ ye_discography = {
         },
         "Gold Digger" : {
             "Duration": 207,
-            "Feature(s)" : [],
+            "Feature(s)" : ["Jamie Foxx"],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
             "Sample" : [],
@@ -272,7 +272,7 @@ ye_discography = {
             "Track Number" : 6,
         },
         "My Way Home" : {
-            "Duration": 42,
+            "Duration": 103,
             "Feature(s)" : [],
             "Writer(s)" : ["Kanye West", "Lonnie Lynn", "Gil-Scott Heron"],
             "Producer(s)" : ["Kanye West"],
@@ -281,7 +281,7 @@ ye_discography = {
             "Track Number" : 7,
         },
         "Crack Music" : {
-            "Duration": 42,
+            "Duration": 271,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -290,7 +290,7 @@ ye_discography = {
             "Track Number" : 8,
         },
         "Roses" : {
-            "Duration": 42,
+            "Duration": 245,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -299,7 +299,7 @@ ye_discography = {
             "Track Number" : 9,
         },
         "Bring Me Down" : {
-            "Duration": 42,
+            "Duration": 199,
             "Feature(s)" : ["Brandy"],
             "Writer(s)" : [],
             "Producer(s)" : "Kanye West",
@@ -308,7 +308,7 @@ ye_discography = {
             "Track Number" : 10,
         },
         "Addiction" : { 
-            "Duration": 42,
+            "Duration": 267,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -317,7 +317,7 @@ ye_discography = {
             "Track Number" : 11,
         },
         "Skit No. 2" : {
-            "Duration": 33,
+            "Duration": 31,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -326,7 +326,7 @@ ye_discography = {
             "Track Number" : 12,
         },
         "Diamonds from Sierra Leone (Remix)" : {
-            "Duration": 42,
+            "Duration": 233,
             "Feature(s)" : ["Jay-Z"],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -335,7 +335,7 @@ ye_discography = {
             "Track Number" : 13,
         },
         "We Major" : {
-            "Duration": 42,
+            "Duration" : 448,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -344,7 +344,7 @@ ye_discography = {
             "Track Number" : 14,
         },
         "Skit No. 3" : {
-            "Duration": 33,
+            "Duration" : 33,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -353,7 +353,7 @@ ye_discography = {
             "Track Number" : 15,
         },
         "Hey Mama" : {
-            "Duration": 42,
+            "Duration" : 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -362,7 +362,7 @@ ye_discography = {
             "Track Number" : 16,
         },
         "Celebration" : {
-            "Duration": 42,
+            "Duration" : 42,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -371,7 +371,7 @@ ye_discography = {
             "Track Number" : 17,
         },
         "Skit No. 4" : {
-            "Duration": 33,
+            "Duration" : 78,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -380,7 +380,7 @@ ye_discography = {
             "Track Number" : 18,
         },
         "Gone" : {
-            "Duration": 42,
+            "Duration" : 333,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -389,7 +389,7 @@ ye_discography = {
             "Track Number" : 19,
         },
         "Diamonds from Sierra Leone (Bonus Track)" : {
-            "Duration": 33,
+            "Duration" : 238,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -398,7 +398,7 @@ ye_discography = {
             "Track Number" : 20,
         },
         "Late (Hidden Track)" : {
-            "Duration": 33,
+            "Duration" : 230,
             "Feature(s)" : [],
             "Writer(s)" : [],
             "Producer(s)" : ["Kanye West"],
@@ -416,19 +416,16 @@ def feature_artist_search(album_filter= None):
         for track, track_details in track_titles.items():
             if searched_artist in track_details["Feature(s)"]:
                 artist_found = True
-                print(f"Kanye West has featured with {searched_artist} on the song(s) {track} from the album {album}.") 
+                print(f"Kanye West has featured with {searched_artist} on the following song(s): \n{track}, from the album {album}.") 
     if artist_found == False:
         print(f"Kanye West has not featured with {searched_artist} on any songs.")
 
-
-def total_ye_songs():
+def count_total_ye_songs():
     total_songs = 0
     for album_name, album_tracks in ye_discography.items():
         for song, details in album_tracks.items():
             total_songs += 1
     return total_songs
-
-
 
 def random_ye_generator(): 
     while True:
@@ -453,26 +450,30 @@ def introduction(count_total_ye_songs):
     for x in range (3):
         print("Initializing Kanye West Song Database...")
         time.sleep(.5)
-    print(f"Welcome to the most extensive Kanye West database on the internet! Host of a whopping {total_ye_songs} songs across his discography!")
-    input("Press Enter to continue...")
+    print(f"Welcome to the most extensive Kanye West database on the web. Host of a whopping {count_total_ye_songs} songs across his discography!")
+    input("...Press Enter to log in...")
 
-
-album_names = {"The College Dropout" : ["TCD", "Dropout"],
-            "Late Registration" : [] }
-
-
-
+album_alias_titles = {
+    "The College Dropout" : "TCD",
+    "Late Registration" : ["Late Registration", "LR", "Registration"],                                                                                                                             
+    "Graduation" : ["Graduation"],
+    "The Life of Pablo" : ["The Life of Pablo", "TLOP", "Pablo"],
+    "My Beautiful Dark Twisted Fantasy" : ["My Beautiful Dark Twisted Fantasy", "MBDTF", "Dark Twisted Fantasy"],
+    "808s & Heartbreaks" : ["808s & Heartbreaks", "808s"],
+    "Yeezus" : ["Yeezus"],
+    "Ye" : "Ye",  
+    "Jesus is King" : ["Jesus is King", "JIK"],  
+    }
 
 def track_finder():
     print("Please input an album title and track number to find a track.")
     while True:
         album_choice = input("Please enter a Kanye West album: ")
-        if album_choice in album_names.values():
-                    print({album_choice})
-                    break
+        if album_choice in album_alias_titles.values():
+            print(album_choice)
+            break
         else:
             print("Not a valid Kanye West album. Please try again.")
-
     while True:
         track_number = input("Track Number: ")
         try:
@@ -481,12 +482,9 @@ def track_finder():
         except ValueError:
             print("Not a valid number. Please try again.")
 
-
-
-
 def main_menu():
     while True:
-        print("Your options in program are: \nRandom Generator \nTrack Finder \nExit")
+        print("Your options in program are: \nRandom Generator \nTrack Finder \nCollab Search \nExit")
         user_choice = input("What is your selection? ")
         if user_choice == "random generator".strip().lower():
             random_ye_generator()
@@ -494,21 +492,22 @@ def main_menu():
             for x in range (3):
                 print("Exiting Kanye West Song Database..")
                 time.sleep(0.9)
+            print("He made Graduation.")
             print("Program Closed...")
             break
         elif user_choice == "Track Finder".lower().strip():
             track_finder()
+        elif user_choice == "Collab Search".lower().strip():
+            feature_artist_search()
         else:
             print("Invalid selection. Please select again.")
             
 
 
-introduction(total_ye_songs())
+#Start_of_Process_Run
+
+introduction(count_total_ye_songs())
 main_menu()
-
-#print(ye_discography.keys())
-
-
 
 
 
