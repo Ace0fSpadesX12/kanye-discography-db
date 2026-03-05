@@ -18,23 +18,23 @@ ye_discography = {
             "Feature(s)" : [],
             "Writer(s)" : ["kanye west"],
             "Producer(s)" : ["kanye west"],    #22 Song album
-            "Sample" : [],
+            "Sample" : [],                      #Release date 2004
             "Track Description" : [],
             "Track Number" : 1,
         },
         "We Don't Care" : {
             "Duration": 239,
             "Feature(s)" : [],
-            "Writer(s)" : ["kanye west, Miri Ben-Ari, Ross Vannelli"],
+            "Writer(s)" : ["kanye west, miri ben-ari, ross vannelli"],
             "Producer(s)" : ["kanye west"],
-            "Sample" : ["We Don't Care contains samples of 'I Just Wanna Stop' written by Ross Vannelli and performed by the Jimmy Castor Bunch"],
+            "Sample" : ["we don't care contains samples of 'I Just Wanna Stop' written by ross vannelli and performed by the jimmy castor bunch"],
             "Track Description" : [],
             "Track Number" : 2,
         },
         "Graduation Day" : {
             "Duration": 82,
             "Feature(s)" : [],
-            "Writer(s)" : ["kanye west", "Miri Ben-Ari", "John Stephens"],
+            "Writer(s)" : ["kanye west", "miri ben-ari", "john stephens"],
             "Producer(s)" : ["kanye west"],
             "Sample" : [],
             "Track Description" : [],
@@ -43,17 +43,17 @@ ye_discography = {
         "All Falls Down" : {
             "Duration": 223,
             "Feature(s)" : [],
-            "Writer(s)" : ["kanye west", "Lauryn Hill"],
+            "Writer(s)" : ["kanye west", "lauryn hill"],
             "Producer(s)" : ["kanye west"],
-            "Sample" : ["""contains interpolations of Lauryn Hill's 'Mystery of Iniquity', 
-            performed here by Syleena Johnson."""],
+            "Sample" : ["""contains interpolations of lauryn hill's 'mystery of iniquity', 
+            performed here by syleena johnson."""],
             "Track Description" : [],
             "Track Number" : 4,
         },
         "I'll Fly Away" : {
             "Duration": 69,
             "Feature(s)" : [],
-            "Writer(s)" : ["Albert E. Brumley"],
+            "Writer(s)" : ["albert e. brumley"],
             "Producer(s)" : ["kanye west"],
             "Sample" : [],
             "Track Description" : [],
@@ -118,7 +118,7 @@ ye_discography = {
         },
         "Slow Jamz" : {
             "Duration": 316,
-            "Feature(s)" : ["Twista", "Jamie Foxx"],
+            "Feature(s)" : ["twista", "jamie foxx"],
             "Writer(s)" : ["kanye west"],
             "Producer(s)" : ["kanye west"],
             "Sample" : [],
@@ -127,7 +127,7 @@ ye_discography = {
         },
         "Breathe In Breath Out" : {
             "Duration": 246,
-            "Feature(s)" : ["Ludacris"],
+            "Feature(s)" : ["ludacris"],
             "Writer(s)" : ["kanye west"],
             "Producer(s)" : ["kanye west", "Brian Miller"],
             "Sample" : [],
@@ -172,7 +172,7 @@ ye_discography = {
         },
         "Two Words" : {
             "Duration": 266,
-            "Feature(s)" : ["Mos Def", "Freeway", "The Boys Choir of Harlem"],
+            "Feature(s)" : ["mos def", "freeway", "the boys choir of harlem"],
             "Writer(s)" : ["kanye west"],
             "Producer(s)" : ["kanye west"],
             "Sample" : [],
@@ -240,7 +240,7 @@ ye_discography = {
             "Feature(s)" : ["lupe fiasco"],
             "Writer(s)" : [],
             "Producer(s)" : ["kanye west"],     #21 Song album.
-            "Sample" : [],
+            "Sample" : [],                        #Release date 2005
             "Track Description" : [],
             "Track Number" : 3,
         },
@@ -300,7 +300,7 @@ ye_discography = {
         },
         "Bring Me Down" : {
             "Duration": 199,
-            "Feature(s)" : ["Brandy"],
+            "Feature(s)" : ["brandy"],
             "Writer(s)" : [],
             "Producer(s)" : "kanye west",
             "Sample" : [],
@@ -411,18 +411,18 @@ ye_discography = {
 
 def feature_artist_search(album_filter= None):
     while True:    
+        loop_again = ""
         searched_artist = input("Enter an artist to see if they've been featured on a kanye west song: ").strip().lower()
         artist_found = False
-        for album, track_titles in ye_discography.items():
-            for track, track_details in track_titles.items():
+        for album, track_list in ye_discography.items():
+            for track, track_details in track_list.items():
                 if searched_artist in track_details["Feature(s)"]:
                     artist_found = True
                     print(f"kanye west has featured with {searched_artist} on the following song(s): \n{track}, from the album {album}.") 
         if artist_found == False:
-            print(f"kanye west has not featured with {searched_artist} on any songs.")
-        
-        loop_again = input("Do you want to search again? (y/n): ")
+            print(f"kanye west has not featured with {searched_artist} on any songs.")    
         while loop_again.lower() != "y" and loop_again.lower() != "n":
+            loop_again = input("Do you want to search again? (y/n): ")
             if loop_again.lower() == "y":
                 continue
             elif loop_again.lower() == "n":
@@ -461,7 +461,7 @@ def introduction(count_total_ye_songs):
     for x in range (3):
         print("Initializing Kanye West Song Database...")
         time.sleep(.5)
-    print(f"Welcome to the most extensive kanye west database on the web. Host of a whopping {count_total_ye_songs} songs across his discography!")
+    print(f"Welcome to the most (prospective) extensive kanye west database on the web. Host of a whopping {count_total_ye_songs} songs across his discography!")
     input("...Press Enter to log in...")
 
 album_alias_titles = {
@@ -488,13 +488,20 @@ def main_menu():
                 time.sleep(0.9)
             print("He made Graduation...")
             sys.exit()
-        elif user_choice == "Track Search".lower().strip():
+        elif user_choice == "track Search".lower().strip():
             track_search()
-        elif user_choice == "Collab Search".lower().strip():
+        elif user_choice == "collab Search".lower().strip():
             feature_artist_search()
         else:
-            print("Invalid selection. Please select again.")
-            
+            #print("Invalid selection. Please select again.")
+            invalid_flvr_txt()
+
+def invalid_flvr_txt():
+    redo = ["Error. Please try again.", "Invalid input. Please try again.",
+        "Please enter a valid input."]
+    flv_txt = random.choice(redo)
+    print(flv_txt) 
+
 
 def album_choice():
     while True:
@@ -507,7 +514,6 @@ def album_choice():
             print("Album not found. Please try again.")
                 
 
-
 def song_choice(chosen_album, song_count):
     if chosen_album in ye_discography.keys():
         while True:
@@ -519,7 +525,6 @@ def song_choice(chosen_album, song_count):
             else:
                 print(f"Out of index range. There are only {song_count} on this album! Please try again.")
 
-
 def track_search():
     chosen_album, song_count = album_choice()
     song_choice(chosen_album, song_count)
@@ -528,10 +533,7 @@ def track_search():
 
 
 
-
-
 #Start_of_Run_Process
-
 introduction(count_total_ye_songs())
 main_menu()
 
