@@ -45,8 +45,7 @@ ye_discography = {
             "Feature(s)" : [],
             "Writer(s)" : ["kanye west", "lauryn hill"],
             "Producer(s)" : ["kanye west"],
-            "Sample" : ["""contains interpolations of lauryn hill's 'mystery of iniquity', 
-            performed here by syleena johnson."""],
+            "Sample" : ["contains interpolations of lauryn hill's 'mystery of iniquity', performed here by syleena johnson."],
             "Track Description" : [],
             "Track Number" : 4,
         },
@@ -407,6 +406,134 @@ ye_discography = {
             "Track Number" : 21,
         },
     },
+    "Graduation" : {
+        "Good Morning" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 1,
+        },
+        "Champion" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 2,
+        },
+        "Stronger" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 3,
+        },
+        "I Wonder" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 4,
+        },
+        "Good Life" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west", "miri ben-ari", "john stephens"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 5,
+        },
+        "Can't Tell Me Nothing" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 6,
+        },
+        "Barry Bonds" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west", "miri ben-ari", "john stephens"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 7,
+        },
+        "Drunk and Hot Girls" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 8,
+        },
+        "Flashing Lights" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 9,
+        },
+        "Everything I Am" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 10,
+        },
+        "The Glory" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 11,
+        },
+        "Homecoming" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 12,
+        },
+        "Big Brother" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["dj toomp"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 13,
+        },
+        "Good Night" : {
+            "Duration": 0,
+            "Feature(s)" : [],
+            "Writer(s)" : ["kanye west"],
+            "Producer(s)" : ["kanye west"],
+            "Sample" : [],
+            "Track Description" : [],
+            "Track Number" : 14,
+        },
+    }
 }
 
 def feature_artist_search(album_filter= None):
@@ -426,7 +553,7 @@ def feature_artist_search(album_filter= None):
             if loop_again.lower() == "y":
                 continue
             elif loop_again.lower() == "n":
-                print("(back to Main Menu...)")
+                print("(back to main menu...)")
                 main_menu()
             else:
                 loop_again = input("Invalid input. Do you want to search again? (y/n): ")
@@ -452,7 +579,7 @@ def random_ye_generator():
         if loop_again.lower() == "y":
             continue
         elif loop_again.lower() == "n":
-            print("(back to Main Menu...)")
+            print("(back to main menu...)")
             break
         else:
             print("Invalid input. Please try again.")
@@ -467,20 +594,19 @@ def introduction(count_total_ye_songs):
 album_alias_titles = {
     "The College Dropout" : {
         "Song Count" : 22,
-        "Album Nicknames" : ["tcd", 1,"college dropout", "1st", "dropout", "the college dropout"],
+        "Album Nicknames" : ["tcd", "1","college dropout", "1st", "dropout", "the college dropout"],
     },
     "Late Registration" : {
         "Song Count" : 21,
-        "Album Nicknames" : ["lr", "late registration", 2, "late reg", "2nd"],
+        "Album Nicknames" : ["lr", "late registration", "2", "late reg", "2nd"],
     }
 }
-
 
 def main_menu():
     while True:
         print("Your options in program are: \nRandom Generator \nTrack Search \nCollab Search \nExit")
         user_choice = input("What is your selection? ")
-        if user_choice == "random generator".strip().lower():
+        if user_choice == "Random Generator".strip().lower():
             random_ye_generator()
         elif user_choice == "Exit".lower().strip():
             for x in range (3):
@@ -501,7 +627,6 @@ def invalid_flvr_txt():
         "Please enter a valid input."]
     flv_txt = random.choice(redo)
     print(flv_txt) 
-
 
 def album_choice():
     while True:
@@ -536,6 +661,9 @@ def track_search():
 #Start_of_Run_Process
 introduction(count_total_ye_songs())
 main_menu()
+
+with open("ye_discography.json", "w") as f: 
+    f.write(json.dumps(ye_discography, indent=4))
 
 
 
